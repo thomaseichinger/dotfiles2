@@ -1,7 +1,8 @@
 #!/bin/sh
 
+DOTFILES_PATH="$HOME/code/dotfiles"
 setup_symlinks() {
-  for source in `find ~/dotfiles -iname "*.symlink"`
+  for source in `find ${DOTFILES_PATH} -iname "*.symlink"`
   do
     dest="$HOME/.`basename \"${source%.*}\"`"
     rm -rf $dest
@@ -9,9 +10,9 @@ setup_symlinks() {
   done
 
   rm -rf $HOME/.config/nvim
-  ln -s $HOME/dotfiles/nvim $HOME/.config/nvim
-  ln -s $HOME/dotfiles/nvim/ $HOME/.vim
-  ln -s $HOME/dotfiles/alacritty/config.yml $HOME/.config/alacritty/alacritty.yml
+  ln -s ${DOTFILES_PATH}/nvim $HOME/.config/nvim
+  ln -s ${DOTFILES_PATH}/nvim/ $HOME/.vim
+  ln -s ${DOTFILES_PATH}/alacritty/config.yml $HOME/.config/alacritty/alacritty.yml
 
   echo "symlinks ✓"
 }

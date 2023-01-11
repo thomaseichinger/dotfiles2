@@ -1,6 +1,6 @@
 [user]
-	name = David Pedersen
-	email = david.pdrsn@gmail.com
+	name = Thomas Eichinger
+	email = thomas.eichinger1@gmail.com
 [color]
   diff = auto
   status = auto
@@ -59,7 +59,7 @@
 [include]
   path = ~/.gitconfig.local
 [commit]
-  template = ~/dotfiles/git/gitmessage
+  template = ~/code/dotfiles/git/gitmessage
 [fetch]
   prune = true
 [github]

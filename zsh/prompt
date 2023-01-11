@@ -4,14 +4,27 @@ autoload -U colors && colors
 # Allow for output of commands
 setopt prompt_subst
 
+#autoload -Uz vcs_info
+#zstyle ':vcs_info:*' enable git
+#zstyle ':vcs_info:git:*' check-for-changes true
+#zstyle ':vcs_info:git:*' stagedstr '*'
+#zstyle ':vcs_info:git:*' unstagedstr '%F{red}!!%f'
+#zstyle ':vcs_info:git:*' actionformats '[%b|%a] '
+#zstyle ':vcs_info:git:*' formats '[%F{green}%b%f%c%u] '
+#zstyle ':vcs_info:git:*' branchformat '%b:%r'
+
 # Save a smiley to a local variable if the last command exited with success.
 # local symbol="$"
 local symbol="❯"
-local start="%(?,%{$fg[green]%}$symbol%{$reset_color%},%{$fg[red]%}$symbol%{$reset_color%})"
+#local start="%(?,%{$fg[green]%}$symbol%{$reset_color%},%{$fg[red]%}$symbol%{$reset_color%})"
+local start="%(?,%B%(?..[%?] )%b%F{green}%3~%f@%F{magenta}%m%f ${vcs_info_msg_0_}%{$fg[green]%}$symbol%{$reset_color%},%{$fg[red]%}$symbol%{$reset_color%})"
 
-PROMPT=$'
-$(smart-pwd) %{$reset_color%}$(git-prompt)%{$fg[white]%}$(k8s-prompt)%{$reset_color%}
-${start} '
-RPROMPT=$''
+
+#$(smart-pwd) %{$reset_color%}$(git-prompt)%{$fg[white]%}$(k8s-prompt)%{$reset_color%}
+#PROMPT=$'$(smart-pwd) %{$reset_color%}$(git-prompt)%{$fg[white]%}$(k8s-prompt)%{$reset_color%}
+#${start} '
+#RPROMPT=$''
+
+source $HOME/code/dotfiles/zsh/git-prompt.zsh/examples/pure.zsh
 
 # vi: ft=sh
