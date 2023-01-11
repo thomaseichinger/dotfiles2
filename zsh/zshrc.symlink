@@ -1,13 +1,9 @@
-source ~/dotfiles/zsh/env
-source ~/dotfiles/zsh/aliases
-source ~/dotfiles/zsh/prompt
-source ~/dotfiles/zsh/functions
+source $HOME/code/dotfiles/script/paths
+
+source ${DOTFILES_PATH}/zsh/env
+source ${DOTFILES_PATH}/zsh/aliases
+source ${DOTFILES_PATH}/zsh/prompt
+source ${DOTFILES_PATH}/zsh/functions
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/davidpdrsn/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/davidpdrsn/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/davidpdrsn/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/davidpdrsn/google-cloud-sdk/completion.zsh.inc'; fi

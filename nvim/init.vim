@@ -67,6 +67,12 @@ call plug#end()
 " == General config ======================
 " ========================================
 
+" lsp errors?
+let g:python3_host_prog = "/opt/homebrew/bin/python3"
+let g:loaded_ruby_provider = 0
+let g:loaded_node_provider = 0
+let g:loaded_perl_provider = 0
+
 " misc
 filetype plugin indent on         " Enable good stuff
 syntax enable                     " Enable syntax highlighting
@@ -398,17 +404,17 @@ let g:rustfmt_autosave = 0
 
 let g:highlightedyank_highlight_duration = 170
 
-call spectacular#reset()
-call spectacular#add_test_runner(
-      \ 'ruby, javascript, eruby, coffee, haml, yml',
-      \ ':call SmartRun("rspec {spec}")',
-      \ ''
-      \ )
-call spectacular#add_test_runner(
-      \ 'ruby, javascript, eruby, coffee, haml, yml',
-      \ ':call SmartRun("rspec {spec}:{line-number}")',
-      \ ''
-      \ )
+" call spectacular#reset()
+" call spectacular#add_test_runner(
+"       \ 'ruby, javascript, eruby, coffee, haml, yml',
+"       \ ':call SmartRun("rspec {spec}")',
+"       \ ''
+"       \ )
+" call spectacular#add_test_runner(
+"       \ 'ruby, javascript, eruby, coffee, haml, yml',
+"       \ ':call SmartRun("rspec {spec}:{line-number}")',
+"       \ ''
+"       \ )
 
 let g:lightline = {}
 let g:lightline.colorscheme = 'jellybeans'
@@ -509,15 +515,32 @@ cmp.setup {
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.close(),
-    ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+    ['<Enter>'] = cmp.mapping.confirm({ select = true }),
     ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item(), {'i','c'}),
     ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), {'i','c'}),
   },
   sources = {
+    { name = 'path' },
     { name = 'nvim_lsp' },
     { name = 'ultisnips' },
     { name = 'buffer' },
-  }
+  },
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
+  },
+  formatting = {
+      fields = {'menu', 'abbr', 'kind'},
+      format = function(entry, item)
+          local menu_icon ={
+              nvim_lsp = 'λ',
+              buffer = 'Ω',
+              path = '🖫',
+          }
+          item.menu = menu_icon[entry.source.name]
+          return item
+      end,
+  },
 }
 
 require('lspconfig').tsserver.setup {
@@ -546,7 +569,7 @@ require('rust-tools').setup {
     flags = {
       debounce_text_changes = 150,
     },
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+    capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
     settings = {
       ["rust-analyzer"] = {
         cargo = {
@@ -557,7 +580,7 @@ require('rust-tools').setup {
         checkOnSave = {
           command = "clippy",
           enable = true,
-          extraArgs = { "--target-dir", "/Users/davidpdrsn/rust-analyzer-check" },
+          extraArgs = { "--target-dir", "/Users/thomaseichinger/rust-analyzer-check" },
         },
         completion = {
           autoimport = {
@@ -620,10 +643,12 @@ require('dressing').setup({
     max_width = { 140, 0.9 },
     min_width = { 20, 0.2 },
 
-    -- Window transparency (0-100)
-    winblend = 10,
-    -- Change default highlight groups (see :help winhl)
-    winhighlight = "",
+    win_options = {
+      -- Window transparency (0-100)
+      winblend = 10,
+      -- Change default highlight groups (see :help winhl)
+      winhighlight = "",
+    },
 
     override = function(conf)
       -- This is the config that will be passed to nvim_open_win.
@@ -682,10 +707,12 @@ require('dressing').setup({
       -- 'editor' and 'win' will default to being centered
       relative = "editor",
 
-      -- Window transparency (0-100)
-      winblend = 10,
-      -- Change default highlight groups (see :help winhl)
-      winhighlight = "",
+      win_options = {
+        -- Window transparency (0-100)
+        winblend = 10,
+        -- Change default highlight groups (see :help winhl)
+        winhighlight = "",
+      },
 
       -- These can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)
       -- the min_ and max_ options can be a list of mixed types.
