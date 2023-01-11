@@ -24,8 +24,6 @@ alias vimconflicts='nvim $(rg -l -. "[<>]{5}")'
 alias vv='nvim $(rg --files | fzf)'
 alias xtask='cargo xtask'
 
-#[ -f `which podman` ] && alias docker='podman' || alias docker='dockery'
-
 # alias d='git d'
 # alias dcc='heroku run rails c -r development'
 # alias dll='heroku logs -t -r development'
