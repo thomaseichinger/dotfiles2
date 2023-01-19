@@ -125,7 +125,7 @@ font:
   # bold:
   #   family: Input Mono
   #   style: Regular
-  size: 14.5
+  size: 20.5
   offset:
     x: 0
     y: 0

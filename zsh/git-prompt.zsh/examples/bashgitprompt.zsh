@@ -24,5 +24,5 @@ ZSH_THEME_GIT_PROMPT_UNTRACKED="…"
 ZSH_THEME_GIT_PROMPT_STASHED="%{$fg[blue]%}⚑"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}✔"
 
-PROMPT=$'%(?..%F{red}%?%f · )%F{magenta}%B%~%b%F{white}$(gitprompt)\n%D{%H:%M} $ '
+PROMPT=$'%(?..%F{red}%?%f · )%F{magenta}%B%~%b%F{white}$(gitprompt)\n$ '
 RPROMPT=''
