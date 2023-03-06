@@ -61,6 +61,9 @@ Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'RRethy/vim-illuminate'
 Plug 'nvim-treesitter/nvim-treesitter-context'
 
+Plug 'thomaseichinger/vim-tmux-navigator'
+Plug 'cdelledonne/vim-cmake'
+
 call plug#end()
 
 " ========================================
