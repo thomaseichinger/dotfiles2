@@ -65,6 +65,9 @@ Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'thomaseichinger/vim-tmux-navigator'
 Plug 'cdelledonne/vim-cmake'
 
+Plug 'mfussenegger/nvim-dap'
+Plug 'prabirshrestha/vim-lsp'
+
 call plug#end()
 
 " ========================================
@@ -556,7 +559,7 @@ require('rust-tools').setup {
   tools = {
     autoSetHints = true,
     inlay_hints = {
-      auto = false,
+      auto = true,
       only_current_line = false,
       show_parameter_hints = true,
       parameter_hints_prefix = "<- ",
@@ -566,6 +569,7 @@ require('rust-tools').setup {
       right_align = false,
       right_align_padding = 7,
       highlight = "Comment",
+      hover_actions = true
     },
   },
   server = {
@@ -584,7 +588,7 @@ require('rust-tools').setup {
         checkOnSave = {
           command = "clippy",
           enable = true,
-          extraArgs = { "--target-dir", "/Users/thomaseichinger/rust-analyzer-check" },
+          extraArgs = { "--target-dir", "/Users/thomas/.tmp/rust-analyzer-check" },
         },
         completion = {
           autoimport = {

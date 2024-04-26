@@ -1,3 +1,4 @@
+alias tailscale='/Applications/Tailscale.app/Contents/MacOS/Tailscale'
 alias ..='cd ..'
 alias c='clear'
 alias ca='cargo'

@@ -114,25 +114,25 @@ scrolling:
 
 font:
   normal:
-    family: Iosevka
-    style: Extralight
-  bold:
-    family: Iosevka
+    family: Iosevka Term
     style: Regular
+  bold:
+    family: Iosevka Term
+    style: Bold
   # normal:
   #   family: Input Mono
   #   style: Regular
   # bold:
   #   family: Input Mono
   #   style: Regular
-  size: 20.5
+  size: 18
   offset:
     x: 0
     y: 0
   glyph_offset:
     x: 0
     y: 0
-  use_thin_strokes: true
+      #  use_thin_strokes: true
 
 draw_bold_text_with_bright_colors: false
 
