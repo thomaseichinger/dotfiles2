@@ -57,6 +57,7 @@ Plug 'uarun/vim-protobuf'
 Plug 'windwp/nvim-autopairs'
 Plug 'stevearc/dressing.nvim'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'srcery-colors/srcery-vim'
 
 Plug 'RRethy/vim-illuminate'
 Plug 'nvim-treesitter/nvim-treesitter-context'
@@ -92,7 +93,7 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-colorscheme tokyonight-night
+colorscheme srcery
 " colorscheme tokyonight-day
 
 " set termguicolors
