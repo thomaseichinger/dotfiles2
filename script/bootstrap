@@ -15,6 +15,9 @@ check_for_tools() {
   brew install nvim
   brew install bat
   brew install fzf
+  brew install tmux
+  brew install rustup && rustup-init
+  brew install cmake
 }
 
 setup_vim() {
