@@ -59,7 +59,6 @@ Plug 'stevearc/dressing.nvim'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'srcery-colors/srcery-vim'
 
-Plug 'RRethy/vim-illuminate'
 Plug 'nvim-treesitter/nvim-treesitter-context'
 
 Plug 'thomaseichinger/vim-tmux-navigator'
