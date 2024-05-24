@@ -25,6 +25,7 @@ local start="%(?,%B%(?..[%?] )%b%F{green}%3~%f@%F{magenta}%m%f ${vcs_info_msg_0_
 #${start} '
 #RPROMPT=$''
 
-source $HOME/code/dotfiles/zsh/git-prompt.zsh/examples/pure.zsh
+#source $HOME/code/dotfiles/zsh/git-prompt.zsh/examples/pure.zsh
+eval "$(starship init zsh)"
 
 # vi: ft=sh

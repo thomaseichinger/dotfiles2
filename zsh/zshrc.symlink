@@ -3,9 +3,16 @@ source $HOME/code/dotfiles/script/paths
 source ${DOTFILES_PATH}/zsh/env
 source ${DOTFILES_PATH}/zsh/aliases
 #source ${DOTFILES_PATH}/zsh/prompt
-source ${DOTFILES_PATH}/zsh/git-prompt.zsh/git-prompt.zsh
-source ${DOTFILES_PATH}/zsh/git-prompt.zsh/examples/bashgitprompt.zsh
+#source ${DOTFILES_PATH}/zsh/git-prompt.zsh/git-prompt.zsh
+#source ${DOTFILES_PATH}/zsh/git-prompt.zsh/examples/bashgitprompt.zsh
 source ${DOTFILES_PATH}/zsh/functions
+eval "$(starship init zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
+. $HOME/.asdf/asdf.sh
+autoload -U +X bashcompinit && bashcompinit
+autoload -U +X compinit && compinit
+
+. $HOME/.asdf/completions/asdf.bash

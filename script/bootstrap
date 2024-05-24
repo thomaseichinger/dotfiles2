@@ -18,6 +18,8 @@ check_for_tools() {
   brew install tmux
   brew install rustup && rustup-init
   brew install cmake
+  brew install starship
+  rustup component add rust-analyzer
 }
 
 setup_vim() {
