@@ -19,6 +19,7 @@ check_for_tools() {
   brew install rustup && rustup-init
   brew install cmake
   brew install starship
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
   rustup component add rust-analyzer
 }
 
