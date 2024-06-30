@@ -32,7 +32,7 @@ check_for_tools() {
   ${PKGMGR_INSTALL} tmux
   ${PKGMGR_INSTALL} rustup && rustup-init
   ${PKGMGR_INSTALL} cmake
-  ${PKGMGR_INSTALL} starship
+  ${PKGMGR_INSTALL} starship || curl -sS https://starship.rs/install.sh | sh
   if [ ! -d ~/.asdf ]; then
     git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
   fi
