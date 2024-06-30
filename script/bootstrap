@@ -17,9 +17,9 @@ check_for_tools() {
     PKGMGR_INSTALL="sudo pkg install"
   elif [ $(uname) = "Darwin" ]; then
     PKGMGR_INSTALL="brew install"
-  elif [ $(cat /etc/os-release | grep Fedora; echo $?) -eq "0" ]; then
+  elif [ `grep "Fedora" /etc/os-release > /dev/null; echo $?` -eq "0" ]; then
     PKGMGR_INSTALL="sudo dnf install"
-  elif [ $(cat /etc/os-release | grep Debian; echo $?) -eq "0" ]; then
+  elif [ `grep "Debian" /etc/os-release > /dev/null; echo $?) -eq "0" ]; then
     PKGMGR_INSTALL="sudo apt install"
   else
     echo "Unsupported OS. Chickening out!!!"
